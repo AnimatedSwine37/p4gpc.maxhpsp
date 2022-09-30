@@ -1,0 +1,21 @@
+{
+  "ModId": "p4gpc.maxhpsp",
+  "ModName": "Persona 4 Golden Custom Max HP & SP",
+  "ModAuthor": "AnimatedSwine37",
+  "ModVersion": "1.0.0",
+  "ModDescription": "Makes it so you can adjust the max HP and SP of party members on a per level basis",
+  "ModDll": "p4gpc.maxhpsp.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/p4gpc.maxhpsp.dll",
+  "ModR2RManagedDll64": "x64/p4gpc.maxhpsp.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "p4gpc.maxhpsp.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [ "reloaded.sharedlib.hooks", "Reloaded.Memory.SigScan.ReloadedII" ],
+  "OptionalDependencies": [],
+  "SupportedAppId": ["p4g.exe"],
+  "ProjectUrl": ""
+}
