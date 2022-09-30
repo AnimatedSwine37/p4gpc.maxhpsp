@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace p4gpc.maxhpsp
 {
-    internal class Enums
+    public class Enums
     {
-        internal enum PartyMember: short
+        public enum PartyMember: short
         {
-            None,
-            Protagonist,
-            Yosuke,
-            Chie,
-            Yukiko,
-            Kanji,
-            Rise,
-            Teddie,
-            Naoto
+            Protagonist = 1,
+            Yosuke = 2,
+            Chie = 3,
+            Yukiko = 4,
+            Kanji = 5,
+            Rise = 6,
+            Teddie = 7,
+            Naoto = 8
         }
     }
 }

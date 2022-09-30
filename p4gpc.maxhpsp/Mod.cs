@@ -62,7 +62,7 @@ namespace p4gpc.maxhpsp
 
         public Mod(ModContext context)
         {
-            Debugger.Launch();
+            //Debugger.Launch();
             _modLoader = context.ModLoader;
             _hooks = context.Hooks!;
             _logger = context.Logger;
@@ -197,16 +197,20 @@ namespace p4gpc.maxhpsp
 
         private short GetMaxHp(PartyMember partyMember, short currentLevel, short currentMaxHp)
         {
-            if (currentLevel == 0 || partyMember <= 0 || partyMember > PartyMember.Naoto) // Is an enemy
+            if (currentLevel <= 0 || partyMember <= 0 || partyMember > PartyMember.Naoto) // Is an enemy
                 return currentMaxHp;
-            return 999;
+            if (!_configuration.MaxHp.TryGetValue(partyMember, out var maxHpArray))
+                return currentMaxHp;
+            return maxHpArray[currentLevel-1] == 0 ? currentMaxHp : maxHpArray[currentLevel-1];
         }
 
         private short GetMaxSp(PartyMember partyMember, short currentLevel, short currentMaxSp)
         {
             if (currentLevel == 0 || partyMember <= 0 || partyMember > PartyMember.Naoto) // Is an enemy
                 return currentMaxSp;
-            return 999;
+            if (!_configuration.MaxSp.TryGetValue(partyMember, out var maxSpArray))
+                return currentMaxSp;
+            return maxSpArray[currentLevel-1] == 0 ? currentMaxSp : maxSpArray[currentLevel-1];
         }
 
         [Function(new Register[] { Register.eax, Register.ecx, Register.edi }, Register.eax, StackCleanup.Callee)]
