@@ -72,8 +72,9 @@ namespace p4gpc.maxhpsp
             var memory = new Memory();
 
             Utils.Initialise(_logger, _configuration);
-            
-            if(!_modLoader.GetController<IStartupScanner>().TryGetTarget(out var startupScanner))
+
+            var startupScannerController = _modLoader.GetController<IStartupScanner>();
+            if (startupScannerController == null || !startupScannerController.TryGetTarget(out var startupScanner))
             {
                 Utils.LogError("Unable to get sig scanner controller, aborting launch. Please ensure that \"Library: Reloaded.Memory.Sigscan for Reloaded II\" is installed and up to date (v1.2.1 or higher)");
                 return;
